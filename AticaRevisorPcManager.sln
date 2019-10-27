@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29123.88
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AticaRevisorPcManager", "Revisor\AticaRevisorPcManager.csproj", "{7D53DF09-9D7E-480C-A2FE-47F6B030012B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7D53DF09-9D7E-480C-A2FE-47F6B030012B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D53DF09-9D7E-480C-A2FE-47F6B030012B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D53DF09-9D7E-480C-A2FE-47F6B030012B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D53DF09-9D7E-480C-A2FE-47F6B030012B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F72B7318-EF4F-4DCC-9727-11AC0DFC9509}
+	EndGlobalSection
+EndGlobal

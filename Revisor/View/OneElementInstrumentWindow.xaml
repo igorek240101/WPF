@@ -1,0 +1,109 @@
+﻿<Window x:Class="AticaRevisorPcManager.View.OneElementInstrumentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AticaRevisorPcManager.View"
+        xmlns:converter="clr-namespace:AticaRevisorPcManager.View.Converter"
+        mc:Ignorable="d"
+        Title="Один инструмент" Height="800" Width="auto" Foreground="White"  ResizeMode="NoResize" WindowState="Normal"
+        IsEnabled="{Binding IsEnabled}"
+        >
+    <Window.Resources>
+        <converter:ElementInstrumentToUploadPropertyConverter x:Key="ElementInstrumentToUploadPropertyConverter"/>
+        <converter:VisabilityLabelXKeyConverter x:Key="VisabilityLabelXKeyConverter"/>
+        <converter:VisibilityImageConverter x:Key="VisibilityImageConverter"/>
+        <converter:ButtonVisabilityConverter x:Key="ButtonVisabilityConverter"/>
+        <Style TargetType="Border" x:Key="b1s">
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="0.4"/>
+           
+        </Style>
+    </Window.Resources>
+    <Window.Background>
+        <SolidColorBrush Color="White"/>
+        
+    </Window.Background>
+    <Grid >
+        <Grid.Background>
+            <ImageBrush ImageSource="/AticaRevisorPcManager;component/Image/a.png" Stretch="None" Opacity="0.15"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+           
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="Описание позиции" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" FontWeight="Thin" Foreground="Black"/>
+            <Grid Grid.Row="1" >
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Border Style="{StaticResource b1s}">
+                    <TextBlock  FontWeight="Thin" Text="Статус инструмента"  FontSize="18" HorizontalAlignment="Center" Foreground="Black" VerticalAlignment="Center"/>
+                </Border>
+                <Border  Grid.Row="1" Grid.Column="0" Style="{StaticResource b1s}">
+                    <TextBlock FontWeight="Thin" Text="Склад инструмента" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black"/>
+                </Border>
+                <Border Grid.Row="2" Grid.Column="0" Style="{StaticResource b1s}" >
+                    <TextBlock FontWeight="Thin" Text="Номенклатура" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black"/>
+                </Border>
+
+                <Border Grid.Row="3" Grid.Column="0" Style="{StaticResource b1s}" >
+                    <TextBlock FontWeight="Thin" Text="Номер инструмента" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black"/>
+                </Border>
+
+                <Border Grid.Column="1" Style="{StaticResource b1s}">
+                    <Grid>
+                        <TextBlock FontWeight="Thin" Background="#FFCCDE1B"  Text="Новый инструмент" Visibility="{Binding ElementInstrumentToUpload.Nomenclature,Converter={StaticResource  VisabilityLabelXKeyConverter}}" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black"/>
+                        <TextBlock  FontWeight="Thin"  Background="#FF1CF906" Text="Существующий инструмент"  Visibility="{Binding ElementInstrumentToUpload.InstrumnetHeader,Converter={StaticResource  VisabilityLabelXKeyConverter}}" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black"/>
+                    </Grid>
+                </Border>
+
+
+                <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource b1s}">
+                    <TextBlock FontWeight="Thin"   Text="{Binding ElementInstrumentToUpload.HoldInstrument.Name,TargetNullValue=''}" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black"/>
+                </Border>
+                <Border  Grid.Row="2" Grid.Column="1" Style="{StaticResource b1s}">
+                    <TextBlock FontWeight="Thin" Text="{Binding ElementInstrumentToUpload,Converter={StaticResource ElementInstrumentToUploadPropertyConverter}, ConverterParameter=1}" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" />
+                </Border>
+                <Border Grid.Row="3" Grid.Column="1" Style="{StaticResource b1s}">
+                    <TextBlock FontWeight="Thin"  Text="{Binding ElementInstrumentToUpload,Converter={StaticResource ElementInstrumentToUploadPropertyConverter}, ConverterParameter=2}" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" />
+                </Border>
+                    
+            </Grid>
+
+            <Grid Grid.Row="2" Visibility="{Binding ElementInstrumentToUpload.InstrumnetHeader, Converter={StaticResource  ButtonVisabilityConverter }}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Добавить как известный инструмент" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Foreground="Black" FontWeight="Light" />
+                <TextBox  Grid.Column="1" Text="{Binding Xkey,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"   Margin="15" VerticalAlignment="Center" FontSize="18" Foreground="Black" FontWeight="Light"/>
+                <Button Command="{Binding ClicAddToELementHeader}" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Добавить как известный инструмент" Background="#FF83E60D" Foreground="#DD000000"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Column="1" Grid.RowSpan="2">
+            <Button Command="{Binding ClicGetImage}" Content="Загрузить изображение" HorizontalAlignment="Center"  VerticalAlignment="Center" Visibility="{Binding SourceImage,Converter={StaticResource ButtonVisabilityConverter }}" />
+            <Image    Source="{Binding SourceImage}" Visibility="{Binding SourceImage,Converter={StaticResource VisibilityImageConverter }}" />
+            
+        </Grid>
+    </Grid>
+</Window>

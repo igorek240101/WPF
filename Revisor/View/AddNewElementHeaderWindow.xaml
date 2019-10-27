@@ -1,0 +1,38 @@
+﻿<Window x:Class="AticaRevisorPcManager.View.AddNewElementHeaderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AticaRevisorPcManager.View"
+        mc:Ignorable="d"
+        Title="Добавление нового известного элемента" Height="450" Width="800" Background="White"
+        IsEnabled="{Binding IsEnabled}"
+        >
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/AticaRevisorPcManager;component/Image/a.png" Opacity="0.2" Stretch="None"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Номенклатура" FontSize="25" FontWeight="Light" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <ComboBox FontSize="18" SelectedItem="{Binding SelectedNomenclature,Mode=TwoWay}" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" ItemsSource="{Binding AvailableNomenclatures}" DisplayMemberPath="Name"/>
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Ключ" FontSize="25" FontWeight="Light" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox   Grid.Row="1" Grid.Column="1" FontSize="25" Text="{Binding Xkey,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Margin="15"></TextBox>
+        </Grid>
+        <Button Command="{Binding ClicAddNewElementHeader}" Grid.Row="2" FontSize="18" Content="Создать новый известный элемент" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#FF7BFF20"/>
+        
+    </Grid>
+</Window>

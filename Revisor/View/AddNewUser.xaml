@@ -1,0 +1,46 @@
+﻿<Window x:Class="AticaRevisorPcManager.View.AddNewUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AticaRevisorPcManager.View"
+        mc:Ignorable="d"
+        Title="Добавление новой номенклатуры материала" Background="White" Height="450" Width="800" IsEnabled="{Binding IsEnabled}">
+    <Window.Resources>
+       
+    </Window.Resources>
+       
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/AticaRevisorPcManager;component/Image/a.png" Opacity="0.3" Stretch="None"/>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.ColumnSpan="2" Text="Добавление нового пользователя" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" FontWeight="Light"/>
+            <TextBlock Text="Наименование" Grid.Row="1" Grid.Column="0" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Light"/>
+            <TextBox Grid.Row="1" Text="{ Binding Name,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  Grid.Column="1" VerticalAlignment="Center" Margin="15" FontSize="20" />
+            <TextBlock Text="Пароль" Grid.Row="2" Grid.Column="0" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Light"/>
+
+            <TextBox  Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" FontSize="25" Text="{Binding Password,UpdateSourceTrigger=PropertyChanged}">
+                
+            </TextBox>
+             
+
+        </Grid>
+        <Button FontSize="20" Command="{Binding ClicAddUser}" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Добавить" Background="#FF3AB756" ></Button>
+    </Grid>
+</Window>
