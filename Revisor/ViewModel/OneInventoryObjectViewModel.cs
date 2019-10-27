@@ -135,7 +135,8 @@ namespace AticaRevisorPcManager.ViewModel
         }
         public bool CanExecuteClicLoadMaterial(object parameter)
         {
-              return true;
+            if(SelectedHoldMaterial!=null)
+              return true; return false;
             
         }
 

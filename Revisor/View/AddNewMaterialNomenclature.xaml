@@ -4,10 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AticaRevisorPcManager.View"
+        xmlns:converter="clr-namespace:AticaRevisorPcManager.View.Converter"
         mc:Ignorable="d"
         Title="Добавление новой номенклатуры материала" Background="White" Height="450" Width="800" IsEnabled="{Binding IsEnabled}">
     <Window.Resources>
-       
+        <converter:BackUnitsConverter x:Key="BackUnitsConverter"/>
     </Window.Resources>
        
     <Grid>
@@ -34,7 +35,7 @@
             <TextBlock Text="Наименование" Grid.Row="1" Grid.Column="0" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Light"/>
             <TextBox Grid.Row="1" Text="{ Binding Name,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  Grid.Column="1" VerticalAlignment="Center" Margin="15" FontSize="20" />
             <TextBlock Text="Еденицы измерения" Grid.Row="2" Grid.Column="0" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Light"/>
-            <ComboBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" SelectedItem="{Binding Units,Mode=OneWayToSource}">
+            <ComboBox Grid.Row="2" Grid.Column="1" FontSize="20" VerticalAlignment="Center" SelectedItem="{Binding Units,Mode=OneWayToSource,Converter={StaticResource BackUnitsConverter}}" >
           
                 <ComboBoxItem Content="шт." FontSize="25" />
                 <ComboBoxItem Content="кг."  FontSize="25"/>

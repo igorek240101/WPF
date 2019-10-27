@@ -121,6 +121,7 @@
     <Compile Include="View\AddNewInstrumentNomenclature.xaml.cs">
       <DependentUpon>AddNewInstrumentNomenclature.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Converter\BackUnitsConverter.cs" />
     <Compile Include="View\Converter\ButtonVisabilityConverter.cs" />
     <Compile Include="View\Converter\CountMaterialHoldConverter.cs" />
     <Compile Include="View\Converter\CountInstrumnetHoldConverter.cs" />

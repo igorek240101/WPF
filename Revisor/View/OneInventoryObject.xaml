@@ -92,14 +92,16 @@
 
                                 </Grid>
 <!--
-                                <TextBlock VerticalAlignment="Center" Grid.Column="1" HorizontalAlignment="Right" Text="Поиск по инструменту" FontSize="23" />
-                                <TextBox VerticalAlignment="Center"  Margin="25,0,0,0"  Grid.Column="2" HorizontalAlignment="Left" Text="{Binding Filter,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="23" Width="450" />
+                                 Box VerticalAlignment="Center"  Margin="25,0,0,0"  Grid.Column="2" HorizontalAlignment="Left" Text="{Binding Filter,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="23" Width="450" />
                          -->   </Grid>
 
-                            <!-- Список инструмента -->
-                            <ListView   x:Name="l1"  ItemsSource="{Binding FillterContext}"  Background="Transparent"  HorizontalAlignment="Center"  >
-                                <ListView.View   >
-                                    <GridView  AllowsColumnReorder="True"   >
+                              <!-- Список инструмента -->
+                            <ListView   x:Name="l1"  ItemsSource="{Binding FillterContext}"  Background="Transparent"  HorizontalAlignment="Center"   >
+                                <ListView.View>
+                                   
+                                   
+                                    <GridView     >
+                                                                            
                                         <GridView.Columns>
 
                                             <GridViewColumn Header="Статус">
@@ -112,7 +114,7 @@
                                                     </DataTemplate>
                                                 </GridViewColumn.CellTemplate>
                                             </GridViewColumn>
-                                            <GridViewColumn  Header="Ключ" Width="400"   >
+                                            <GridViewColumn  Header="Ключ" Width="400"    >
                                                 <GridViewColumn.CellTemplate  >
                                                     <DataTemplate   >
                                                         <Grid  >
@@ -155,8 +157,8 @@
                                         <i:InvokeCommandAction Command="{Binding ClicSelect}"  CommandParameter="{Binding ElementName=l1,Path=SelectedItem}"          />
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
-
-                            </ListView>
+                                
+                            </ListView> 
                         </StackPanel>
                     </Border>
 
